@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{1B0BE822-802A-4D8D-B00A-BB05BAFECC13}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>JiraCloudTools.JiraBase</RootNamespace>
+    <RootNamespace>JiraBase</RootNamespace>
     <AssemblyName>JiraBase</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
