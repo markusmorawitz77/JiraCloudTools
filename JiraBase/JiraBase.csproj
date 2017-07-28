@@ -51,10 +51,19 @@
     <Compile Include="JiraBaseMainForm.Designer.cs">
       <DependentUpon>JiraBaseMainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="JiraConnectBarControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="JiraConnectBarControl.Designer.cs">
+      <DependentUpon>JiraConnectBarControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="JiraBaseMainForm.resx">
       <DependentUpon>JiraBaseMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JiraConnectBarControl.resx">
+      <DependentUpon>JiraConnectBarControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
