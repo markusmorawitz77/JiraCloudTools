@@ -28,12 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.jiraConnectBarControl1 = new JiraCloudTools.Components.JiraConnectBarControl();
+            this.SuspendLayout();
+            // 
+            // jiraConnectBarControl1
+            // 
+            this.jiraConnectBarControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.jiraConnectBarControl1.Location = new System.Drawing.Point(12, 12);
+            this.jiraConnectBarControl1.Name = "jiraConnectBarControl1";
+            this.jiraConnectBarControl1.Size = new System.Drawing.Size(928, 25);
+            this.jiraConnectBarControl1.TabIndex = 0;
+            // 
+            // JiraProjectsMainForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "Form1";
+            this.ClientSize = new System.Drawing.Size(952, 451);
+            this.Controls.Add(this.jiraConnectBarControl1);
+            this.Name = "JiraProjectsMainForm";
+            this.Text = "Jira Cloud Tools -Projec";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private JiraCloudTools.Components.JiraConnectBarControl jiraConnectBarControl1;
     }
 }
 

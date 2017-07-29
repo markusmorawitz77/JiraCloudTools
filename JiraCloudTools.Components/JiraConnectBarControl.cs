@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using AnotherJiraRestClient;
 
-namespace JiraBase
+namespace JiraCloudTools.Components
 {
     public partial class JiraConnectBarControl : UserControl
     {
