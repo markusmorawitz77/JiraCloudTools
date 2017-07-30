@@ -76,6 +76,7 @@
     <Compile Include="JiraModel\Priority.cs" />
     <Compile Include="JiraModel\Progress.cs" />
     <Compile Include="JiraModel\Project.cs" />
+    <Compile Include="JiraModel\ProjectCategory.cs" />
     <Compile Include="JiraModel\ProjectMeta.cs" />
     <Compile Include="JiraModel\Resolution.cs" />
     <Compile Include="JiraModel\Status.cs" />

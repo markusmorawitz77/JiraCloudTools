@@ -33,6 +33,14 @@
             this.listView = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
+            // toolTip
+            // 
+            this.toolTip.AutomaticDelay = 100;
+            this.toolTip.AutoPopDelay = 90000;
+            this.toolTip.InitialDelay = 100;
+            this.toolTip.ReshowDelay = 20;
+            this.toolTip.ShowAlways = true;
+            // 
             // listView
             // 
             this.listView.Dock = System.Windows.Forms.DockStyle.Fill;

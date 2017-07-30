@@ -63,7 +63,7 @@ namespace AnotherJiraRestClient
 
         public static string Project()
         {
-            return Url("project");
+            return Url("project?expand=description");
         }
 
         private static string Url(string key)

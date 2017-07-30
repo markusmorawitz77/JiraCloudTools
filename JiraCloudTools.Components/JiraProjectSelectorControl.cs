@@ -28,12 +28,40 @@ namespace JiraCloudTools.Components
             InitializeComponent();
         }
 
+        private int CompareProjects(Project x, Project y)
+        {
+            if (x.projectCategory != null && y.projectCategory != null)
+            {
+                if (x.projectCategory.id.Equals(y.projectCategory.id))
+                {
+                    return string.Compare(x.name, y.name);
+                }
+                else
+                {
+                    return string.Compare(x.projectCategory.name, y.projectCategory.name);
+                }
+            }
+            else if (x.projectCategory == null && y.projectCategory == null)
+            {
+                return string.Compare(x.name, y.name);
+            }
+            else if (x.projectCategory == null && y.projectCategory != null)
+            {
+                return 1;
+            }
+            else if (x.projectCategory != null && y.projectCategory == null)
+            {
+                return -1;
+            }
+            return string.Compare(x.name, y.name);
+        }
+
         public void DownloadAllProjectsFromCloud()
         {
             if (JiraClient != null)
             { 
             List<Project> projects = JiraClient.GetProjects();
-                projects.Sort((x, y) => string.Compare(x.name, y.name));
+                projects.Sort((x, y) => CompareProjects(x,y));
 
                 listView.BeginUpdate();
 
@@ -41,22 +69,45 @@ namespace JiraCloudTools.Components
                 listView.Columns.Clear();
                 listView.Items.Clear();
 
-                listView.Columns.Add("Project Name");
-                listView.Columns.Add("Key");
+                listView.ShowItemToolTips = true;
+                listView.ShowGroups = true;
+
+                listView.Groups.Add("No Category", "Projects without Category");
+
+                listView.Columns.Add("Project Name", "Project Name");
+                listView.Columns.Add("Key", "Key");
+                listView.Columns.Add("Description", "Description");
 
                 foreach (Project p in projects)
                 {
                     ListViewItem item = new ListViewItem(p.name);
                     item.Tag = p;
                     item.SubItems.Add(p.key);
+                    item.SubItems.Add(p.description);
+                    item.ToolTipText = p.description;
+
+                    if (p.projectCategory != null)
+                    {
+                        ListViewGroup g = listView.Groups[p.projectCategory.id];
+                        if (g == null)
+                            g = listView.Groups.Add(p.projectCategory.id, string.Format("{0} - {1}", p.projectCategory.name, p.projectCategory.description));
+                        item.Group = g;
+                    }
+                    else
+                    {
+                        item.Group = listView.Groups["No Category"];
+                    }
 
                     listView.Items.Add(item);
                 }
 
                 listView.View = View.Details;
 
-                listView.Columns[0].Width = -1;
-                listView.Columns[1].Width = -1;
+                foreach(ColumnHeader c in listView.Columns)
+                {
+                    c.Width = -1;
+                }
+                listView.Columns["Description"].Width = 300;
 
                 listView.EndUpdate();
             }
