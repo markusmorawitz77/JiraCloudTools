@@ -72,8 +72,6 @@
             // 
             // jiraServerToolStripComboBox
             // 
-            this.jiraServerToolStripComboBox.Items.AddRange(new object[] {
-            "https://leister.atlassian.net"});
             this.jiraServerToolStripComboBox.Name = "jiraServerToolStripComboBox";
             this.jiraServerToolStripComboBox.Size = new System.Drawing.Size(300, 25);
             // 

@@ -75,6 +75,11 @@ namespace JiraCloudTools.Components
             this.userNameToolStripTextBox.Enabled = false;
             this.passwordToolStripTextBox.Enabled = false;
 
+            Properties.Settings.Default.JiraServer = this.jiraServerToolStripComboBox.Text;
+            Properties.Settings.Default.JiraUserName = this.userNameToolStripTextBox.Text;
+            Properties.Settings.Default.JiraPassword = this.passwordToolStripTextBox.Text;
+            Properties.Settings.Default.Save();
+
             ConnectedEventArgs connectedEventArgs = new ConnectedEventArgs();
             connectedEventArgs.JiraClient = this.JiraClient;
             OnConnectedToJiraClient(connectedEventArgs);
@@ -105,8 +110,14 @@ namespace JiraCloudTools.Components
                 tb.PasswordChar = '*';
             }
 
-            this.jiraServerToolStripComboBox.Text = "https://leister.atlassian.net";
-            this.userNameToolStripTextBox.Text = "markus.morawitz";
+            foreach (string s in Properties.Settings.Default.JiraServers)
+            {
+                this.jiraServerToolStripComboBox.Items.Add(s);
+            }
+
+            this.jiraServerToolStripComboBox.Text = Properties.Settings.Default.JiraServer;
+            this.userNameToolStripTextBox.Text = Properties.Settings.Default.JiraUserName;
+            this.passwordToolStripTextBox.Text = Properties.Settings.Default.JiraPassword;
         }
     }
 }
