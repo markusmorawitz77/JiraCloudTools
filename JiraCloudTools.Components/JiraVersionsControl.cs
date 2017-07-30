@@ -14,6 +14,14 @@ namespace JiraCloudTools.Components
 {
     public partial class JiraVersionsControl : UserControl
     {
+        public class SelectedVersionsEventArgs : EventArgs
+        {
+            public List<AnotherJiraRestClient.JiraModel.Version> Versions { get; set; }
+        }
+
+        public event EventHandler<SelectedVersionsEventArgs> SelectedVersionsChanged;
+
+
         public JiraClient JiraClient { get; set; }
 
         public JiraVersionsControl()
@@ -81,6 +89,21 @@ namespace JiraCloudTools.Components
 
                 listView.EndUpdate();
             }
+        }
+
+        private void listView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            List<AnotherJiraRestClient.JiraModel.Version> versions;
+            versions = new List<AnotherJiraRestClient.JiraModel.Version>();
+            SelectedVersionsEventArgs selectedVersionsEventArgs = new SelectedVersionsEventArgs();
+
+            foreach (ListViewItem item in listView.SelectedItems)
+            {
+                versions.Add((AnotherJiraRestClient.JiraModel.Version)item.Tag);
+            }
+
+            selectedVersionsEventArgs.Versions = versions;
+            SelectedVersionsChanged?.Invoke(this, selectedVersionsEventArgs);
         }
     }
 }

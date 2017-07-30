@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JiraCloudTools.ProjectTree"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JiraCloudTools.VersionOverview", "JiraCloudTools.VersionOverview\JiraCloudTools.VersionOverview.csproj", "{38FCBCB4-607B-4B56-887E-D83D9B2B857A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JiraCloudTools.ReportGenerator", "JiraCloudTools.ReportGenerator\JiraCloudTools.ReportGenerator.csproj", "{AA5FBD58-0CE8-4920-8421-6ED9EA4C3ED2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{38FCBCB4-607B-4B56-887E-D83D9B2B857A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{38FCBCB4-607B-4B56-887E-D83D9B2B857A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{38FCBCB4-607B-4B56-887E-D83D9B2B857A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA5FBD58-0CE8-4920-8421-6ED9EA4C3ED2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA5FBD58-0CE8-4920-8421-6ED9EA4C3ED2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA5FBD58-0CE8-4920-8421-6ED9EA4C3ED2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA5FBD58-0CE8-4920-8421-6ED9EA4C3ED2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,6 +1,6 @@
 ﻿namespace JiraCloudTools.Components
 {
-    partial class JiraVersionsControl
+    partial class JiraIssuesListViewControl
     {
         /// <summary> 
         /// Erforderliche Designervariable.
@@ -36,18 +36,17 @@
             this.listView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listView.Location = new System.Drawing.Point(0, 0);
             this.listView.Name = "listView";
-            this.listView.Size = new System.Drawing.Size(541, 409);
+            this.listView.Size = new System.Drawing.Size(566, 471);
             this.listView.TabIndex = 0;
             this.listView.UseCompatibleStateImageBehavior = false;
-            this.listView.SelectedIndexChanged += new System.EventHandler(this.listView_SelectedIndexChanged);
             // 
-            // JiraVersionsControl
+            // JiraIssuesListViewControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.listView);
-            this.Name = "JiraVersionsControl";
-            this.Size = new System.Drawing.Size(541, 409);
+            this.Name = "JiraIssuesListViewControl";
+            this.Size = new System.Drawing.Size(566, 471);
             this.ResumeLayout(false);
 
         }

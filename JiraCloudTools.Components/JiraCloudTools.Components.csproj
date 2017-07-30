@@ -47,6 +47,12 @@
     <Compile Include="JiraConnectBarControl.Designer.cs">
       <DependentUpon>JiraConnectBarControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="JiraIssuesListViewControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="JiraIssuesListViewControl.Designer.cs">
+      <DependentUpon>JiraIssuesListViewControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="JiraProjectSelectorControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -70,6 +76,9 @@
   <ItemGroup>
     <EmbeddedResource Include="JiraConnectBarControl.resx">
       <DependentUpon>JiraConnectBarControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JiraIssuesListViewControl.resx">
+      <DependentUpon>JiraIssuesListViewControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="JiraProjectSelectorControl.resx">
       <DependentUpon>JiraProjectSelectorControl.cs</DependentUpon>
