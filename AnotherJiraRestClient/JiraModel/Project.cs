@@ -8,5 +8,6 @@ namespace AnotherJiraRestClient.JiraModel
         public string description { get; set; }
         public string name { get; set; }
         public ProjectCategory projectCategory { get; set; }
+        public ProjectLead lead { get; set; }
     }
 }

@@ -77,6 +77,7 @@ namespace JiraCloudTools.Components
                 {
                     c.Width = -1;
                 }
+                if (listView.Columns[2].Width > 300) listView.Columns[2].Width = 300;
 
                 listView.EndUpdate();
             }

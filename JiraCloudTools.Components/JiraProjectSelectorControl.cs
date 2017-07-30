@@ -76,6 +76,7 @@ namespace JiraCloudTools.Components
 
                 listView.Columns.Add("Project Name", "Project Name");
                 listView.Columns.Add("Key", "Key");
+                listView.Columns.Add("Lead", "Project Lead");
                 listView.Columns.Add("Description", "Description");
 
                 foreach (Project p in projects)
@@ -83,6 +84,7 @@ namespace JiraCloudTools.Components
                     ListViewItem item = new ListViewItem(p.name);
                     item.Tag = p;
                     item.SubItems.Add(p.key);
+                    item.SubItems.Add(p.lead.key);
                     item.SubItems.Add(p.description);
                     item.ToolTipText = p.description;
 
