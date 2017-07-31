@@ -24,44 +24,46 @@ namespace JiraCloudTools.Components
 
         public void DownloadIssues(List<AnotherJiraRestClient.JiraModel.Version> versions)
         {
-            listView.BeginUpdate();
-
-
-            listView.Groups.Clear();
-            listView.Columns.Clear();
-            listView.Items.Clear();
-
-            listView.Columns.Add("Issue Key", "Issue Key");
-            listView.Columns.Add("Summary", "Summary");
-
-            foreach (AnotherJiraRestClient.JiraModel.Version v in versions)
+            if (JiraClient != null)
             {
-                ProjectMeta projectMeta = JiraClient.GetProjectMetaById(v.projectId);
+                listView.BeginUpdate();
 
-                string jql = $"project = {v.projectId} AND fixVersion = {v.id}";
-                List<string> fields = new List<string>() { "summary" };
-                Issues issues = JiraClient.GetIssuesByJql(jql, 0, 10000, fields);
+                listView.View = View.Details;
 
+                listView.Groups.Clear();
+                listView.Columns.Clear();
+                listView.Items.Clear();
 
-                ListViewGroup versionGroup = listView.Groups.Add(v.id, $"{projectMeta.name} - {v.name}");
+                listView.Columns.Add("Issue Key", "Issue Key");
+                listView.Columns.Add("Summary", "Summary");
 
-                foreach (Issue issue in issues.issues)
+                foreach (AnotherJiraRestClient.JiraModel.Version v in versions)
                 {
-                    ListViewItem item = listView.Items.Add(issue.key);
-                    item.SubItems.Add(issue.fields.summary);
+                    ProjectMeta projectMeta = JiraClient.GetProjectMetaById(v.projectId);
 
-                    item.Group = versionGroup;
+                    string jql = $"project = {v.projectId} AND fixVersion = {v.id}";
+                    List<string> fields = new List<string>() { "summary" };
+                    Issues issues = JiraClient.GetIssuesByJql(jql, 0, 10000, fields);
+
+
+                    ListViewGroup versionGroup = listView.Groups.Add(v.id, $"{projectMeta.name} - {v.name}");
+
+                    foreach (Issue issue in issues.issues)
+                    {
+                        ListViewItem item = listView.Items.Add(issue.key);
+                        item.SubItems.Add(issue.fields.summary);
+
+                        item.Group = versionGroup;
+                    }
                 }
+
+                foreach (ColumnHeader header in listView.Columns)
+                {
+                    header.Width = -1;
+                }
+
+                listView.EndUpdate();
             }
-
-            foreach (ColumnHeader header in listView.Columns)
-            {
-                header.Width = -1;
-            }
-
-            listView.View = View.Details;
-
-            listView.EndUpdate();
         }
 
     }
