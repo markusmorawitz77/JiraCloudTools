@@ -28,11 +28,12 @@ namespace JiraCloudTools.Components
             {
                 listView.BeginUpdate();
 
-                listView.View = View.Details;
-
                 listView.Groups.Clear();
                 listView.Columns.Clear();
                 listView.Items.Clear();
+
+                listView.View = View.Details;
+                listView.ShowGroups = true;
 
                 listView.Columns.Add("Issue Key", "Issue Key");
                 listView.Columns.Add("Summary", "Summary");
@@ -54,6 +55,7 @@ namespace JiraCloudTools.Components
                         item.SubItems.Add(issue.fields.summary);
 
                         item.Group = versionGroup;
+                        item.Tag = issue;
                     }
                 }
 
