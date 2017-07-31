@@ -22,6 +22,7 @@ namespace JiraCloudTools.ReportGenerator
             Cursor.Current = Cursors.WaitCursor;
             this.jiraProjectSelectorControl.JiraClient = e.JiraClient;
             this.jiraVersionsControl.JiraClient = e.JiraClient;
+            this.jiraIssuesListViewControl.JiraClient = e.JiraClient;
 
             this.jiraProjectSelectorControl.DownloadAllProjectsFromCloud();
         }
@@ -30,6 +31,12 @@ namespace JiraCloudTools.ReportGenerator
         {
             Cursor.Current = Cursors.WaitCursor;
             this.jiraVersionsControl.DownloadVersionInfo(e.Projects);
+        }
+
+        private void jiraVersionsControl_SelectedVersionsChanged(object sender, Components.JiraVersionsControl.SelectedVersionsEventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            this.jiraIssuesListViewControl.DownloadIssues(e.Versions);
         }
     }
 }

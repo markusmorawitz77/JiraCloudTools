@@ -220,7 +220,7 @@ namespace AnotherJiraRestClient
         /// </summary>
         /// <param name="projectKey"></param>
         /// <returns>the meta data for creating issues</returns>
-        public ProjectMeta GetProjectMeta(string projectKey)
+        public ProjectMeta GetProjectMetaByKey(string projectKey)
         {
 	        var request = new RestRequest {Resource = ResourceUrls.CreateMeta()};
 	        request.AddParameter(new Parameter()
@@ -232,6 +232,30 @@ namespace AnotherJiraRestClient
             request.Method = Method.GET;
             var createMeta = Execute<IssueCreateMeta>(request, HttpStatusCode.OK);
             if (createMeta.projects[0].key != projectKey || createMeta.projects.Count != 1)
+                // TODO: Error message
+                throw new JiraApiException();
+            return createMeta.projects[0];
+        }
+
+        /// <summary>
+        /// Returns the meta data for creating issues. This includes the 
+        /// available projects and issue types, but not fields (fields
+        /// are supported in the Jira api but not by this wrapper currently).
+        /// </summary>
+        /// <param name="projectID"></param>
+        /// <returns>the meta data for creating issues</returns>
+        public ProjectMeta GetProjectMetaById(string projectID)
+        {
+            var request = new RestRequest { Resource = ResourceUrls.CreateMeta() };
+            request.AddParameter(new Parameter()
+            {
+                Name = "projectIds",
+                Value = projectID,
+                Type = ParameterType.GetOrPost
+            });
+            request.Method = Method.GET;
+            var createMeta = Execute<IssueCreateMeta>(request, HttpStatusCode.OK);
+            if (createMeta.projects[0].id != projectID || createMeta.projects.Count != 1)
                 // TODO: Error message
                 throw new JiraApiException();
             return createMeta.projects[0];

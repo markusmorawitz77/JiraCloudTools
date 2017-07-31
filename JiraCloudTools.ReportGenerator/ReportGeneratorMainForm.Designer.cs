@@ -33,12 +33,14 @@
             this.jiraProjectSelectorControl = new JiraCloudTools.Components.JiraProjectSelectorControl();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.jiraVersionsControl = new JiraCloudTools.Components.JiraVersionsControl();
+            this.jiraIssuesListViewControl = new JiraCloudTools.Components.JiraIssuesListViewControl();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
+            this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -90,6 +92,10 @@
             // splitContainer2.Panel1
             // 
             this.splitContainer2.Panel1.Controls.Add(this.jiraVersionsControl);
+            // 
+            // splitContainer2.Panel2
+            // 
+            this.splitContainer2.Panel2.Controls.Add(this.jiraIssuesListViewControl);
             this.splitContainer2.Size = new System.Drawing.Size(378, 287);
             this.splitContainer2.SplitterDistance = 126;
             this.splitContainer2.TabIndex = 0;
@@ -102,6 +108,15 @@
             this.jiraVersionsControl.Name = "jiraVersionsControl";
             this.jiraVersionsControl.Size = new System.Drawing.Size(126, 287);
             this.jiraVersionsControl.TabIndex = 0;
+            this.jiraVersionsControl.SelectedVersionsChanged += new System.EventHandler<JiraCloudTools.Components.JiraVersionsControl.SelectedVersionsEventArgs>(this.jiraVersionsControl_SelectedVersionsChanged);
+            // 
+            // jiraIssuesListViewControl
+            // 
+            this.jiraIssuesListViewControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.jiraIssuesListViewControl.Location = new System.Drawing.Point(0, 0);
+            this.jiraIssuesListViewControl.Name = "jiraIssuesListViewControl";
+            this.jiraIssuesListViewControl.Size = new System.Drawing.Size(248, 287);
+            this.jiraIssuesListViewControl.TabIndex = 0;
             // 
             // ReportGeneratorMainForm
             // 
@@ -117,6 +132,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
+            this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -130,6 +146,7 @@
         private Components.JiraProjectSelectorControl jiraProjectSelectorControl;
         private System.Windows.Forms.SplitContainer splitContainer2;
         private Components.JiraVersionsControl jiraVersionsControl;
+        private Components.JiraIssuesListViewControl jiraIssuesListViewControl;
     }
 }
 
